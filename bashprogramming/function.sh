@@ -4,7 +4,6 @@ GLOBAL_VAR="WELCOME"
 
 function fun()
 {
-
 	echo "${GLOBAL_VAR} inside fun()  $1"
 }
 
