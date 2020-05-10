@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.0.0)
+
+set(NAME Alice)
+set(Alice james)
+set(NAMEAlicejames Charlie)
+
+message(${NAME})
+message(${${NAME}})
+
+message(NAME ${NAME} ${${NAME}})
+message(NAME${NAME}${${NAME}})
+message(${NAME${NAME}${${NAME}}})
+message("NAME ${NAME} ${${NAME}}")

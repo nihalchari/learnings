@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ehc1kor/ehc1kor/repo/learnings/cmake/module2/add.hpp
+
+/home/ehc1kor/ehc1kor/repo/learnings/cmake/module2/div.hpp
+
+/home/ehc1kor/ehc1kor/repo/learnings/cmake/module2/main.cpp
+iostream
+-
+add.hpp
+/home/ehc1kor/ehc1kor/repo/learnings/cmake/module2/add.hpp
+div.hpp
+/home/ehc1kor/ehc1kor/repo/learnings/cmake/module2/div.hpp
+print.hpp
+/home/ehc1kor/ehc1kor/repo/learnings/cmake/module2/print.hpp
+
+/home/ehc1kor/ehc1kor/repo/learnings/cmake/module2/print.hpp
+

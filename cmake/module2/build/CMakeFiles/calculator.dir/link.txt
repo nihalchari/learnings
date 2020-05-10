@@ -1,0 +1,1 @@
+/usr/lib/ccache/c++    -rdynamic CMakeFiles/calculator.dir/main.cpp.o  -o calculator libmath.a libprint.a 
