@@ -72,4 +72,15 @@ PRIVATE :  do not want to set and propagate property
 Visit cmake documentation to know about more on properties of target
 
 
+cmake commands, function names and macros name are case insensitive
 
+
+
+types of variable
+global scope
+persistent cache variable
+Environment Variable
+
+All variables written inside CMakeCache file are cache variables
+some are set depending upon development environment
+some are set by commands from CMakeLists.txt

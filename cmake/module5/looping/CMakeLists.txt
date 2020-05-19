@@ -14,12 +14,12 @@ while(NOT VAR STREQUAL aaaaaaaa)
 endwhile()
 
 
-foreach(NAME nihal chari;BOSCH)
+foreach(NAME nihal chari;BOSCH)             #both semicolon separated and space separeted values can be used
     message(${NAME})
 endforeach()
 
 
-foreach(x RANGE 5)
+foreach(x RANGE 5)                          #x takes the values between 0 to 5
     message(${x})
 endforeach()
 
@@ -29,6 +29,11 @@ endforeach()
 
 foreach(x RANGE 15 34 5)
     message(${x})
+endforeach()
+
+
+foreach(x RANGE 100 105)
+    message("Person_${x}")
 endforeach()
 
 
