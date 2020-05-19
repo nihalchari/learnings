@@ -1,0 +1,34 @@
+set(VAR a b c;d "e;f" XY 521 "Hello world")
+message(${VAR})
+
+list(APPEND VAR 521 nihal)
+message(${VAR})
+
+list(REMOVE_AT VAR 0 10)
+message(${VAR})
+
+list(REMOVE_ITEM VAR 1.23 "Hello world")
+message(${VAR})
+
+list(INSERT VAR 1 521 "nihal")
+message(${VAR})
+
+list(REVERSE VAR)
+message(${VAR})
+
+list(REMOVE_DUPLICATES VAR)
+message(${VAR})
+
+list(SORT VAR)
+message(${VAR})
+
+
+list(LENGTH VAR VAR_len)
+list(GET VAR 2 4 6 sub_var)
+list(FIND VAR nihal find_var)
+list(FIND VAR nil find_var1)
+
+message("var_len = ${VAR_len}")
+message("sub_var = ${sub_var}")
+message("find_var = ${find_var}")
+message("find_var1 = ${find_var1}")

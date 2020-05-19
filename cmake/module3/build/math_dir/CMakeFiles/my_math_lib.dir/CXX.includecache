@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../math_dir/include/my_math/add.hpp
+
+../math_dir/include/my_math/div.hpp
+
+/home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/math_dir/src/add.cpp
+my_math/add.hpp
+/home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/math_dir/src/my_math/add.hpp
+
+/home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/math_dir/src/div.cpp
+my_math/div.hpp
+/home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/math_dir/src/my_math/div.hpp
+
