@@ -1,4 +1,4 @@
-# Install script for directory: /home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/math_dir
+# Install script for directory: /home/ehc1kor/ehc1kor/repo/learnings/cmake/module6/math_dir
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

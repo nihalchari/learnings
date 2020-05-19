@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/math_dir/include 
+CXX_INCLUDES = -I/home/ehc1kor/ehc1kor/repo/learnings/cmake/module6/math_dir/include 
 

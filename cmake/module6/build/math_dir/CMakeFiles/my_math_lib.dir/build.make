@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ehc1kor/ehc1kor/repo/learnings/cmake/module3
+CMAKE_SOURCE_DIR = /home/ehc1kor/ehc1kor/repo/learnings/cmake/module6
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/build
+CMAKE_BINARY_DIR = /home/ehc1kor/ehc1kor/repo/learnings/cmake/module6/build
 
 # Include any dependencies generated for this target.
 include math_dir/CMakeFiles/my_math_lib.dir/depend.make
@@ -59,16 +59,16 @@ include math_dir/CMakeFiles/my_math_lib.dir/flags.make
 
 math_dir/CMakeFiles/my_math_lib.dir/src/add.cpp.o: math_dir/CMakeFiles/my_math_lib.dir/flags.make
 math_dir/CMakeFiles/my_math_lib.dir/src/add.cpp.o: ../math_dir/src/add.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object math_dir/CMakeFiles/my_math_lib.dir/src/add.cpp.o"
-	cd /home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/build/math_dir && /usr/lib/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/my_math_lib.dir/src/add.cpp.o -c /home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/math_dir/src/add.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ehc1kor/ehc1kor/repo/learnings/cmake/module6/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object math_dir/CMakeFiles/my_math_lib.dir/src/add.cpp.o"
+	cd /home/ehc1kor/ehc1kor/repo/learnings/cmake/module6/build/math_dir && /usr/lib/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/my_math_lib.dir/src/add.cpp.o -c /home/ehc1kor/ehc1kor/repo/learnings/cmake/module6/math_dir/src/add.cpp
 
 math_dir/CMakeFiles/my_math_lib.dir/src/add.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my_math_lib.dir/src/add.cpp.i"
-	cd /home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/build/math_dir && /usr/lib/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/math_dir/src/add.cpp > CMakeFiles/my_math_lib.dir/src/add.cpp.i
+	cd /home/ehc1kor/ehc1kor/repo/learnings/cmake/module6/build/math_dir && /usr/lib/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ehc1kor/ehc1kor/repo/learnings/cmake/module6/math_dir/src/add.cpp > CMakeFiles/my_math_lib.dir/src/add.cpp.i
 
 math_dir/CMakeFiles/my_math_lib.dir/src/add.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my_math_lib.dir/src/add.cpp.s"
-	cd /home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/build/math_dir && /usr/lib/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/math_dir/src/add.cpp -o CMakeFiles/my_math_lib.dir/src/add.cpp.s
+	cd /home/ehc1kor/ehc1kor/repo/learnings/cmake/module6/build/math_dir && /usr/lib/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ehc1kor/ehc1kor/repo/learnings/cmake/module6/math_dir/src/add.cpp -o CMakeFiles/my_math_lib.dir/src/add.cpp.s
 
 math_dir/CMakeFiles/my_math_lib.dir/src/add.cpp.o.requires:
 
@@ -83,16 +83,16 @@ math_dir/CMakeFiles/my_math_lib.dir/src/add.cpp.o.provides.build: math_dir/CMake
 
 math_dir/CMakeFiles/my_math_lib.dir/src/div.cpp.o: math_dir/CMakeFiles/my_math_lib.dir/flags.make
 math_dir/CMakeFiles/my_math_lib.dir/src/div.cpp.o: ../math_dir/src/div.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object math_dir/CMakeFiles/my_math_lib.dir/src/div.cpp.o"
-	cd /home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/build/math_dir && /usr/lib/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/my_math_lib.dir/src/div.cpp.o -c /home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/math_dir/src/div.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ehc1kor/ehc1kor/repo/learnings/cmake/module6/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object math_dir/CMakeFiles/my_math_lib.dir/src/div.cpp.o"
+	cd /home/ehc1kor/ehc1kor/repo/learnings/cmake/module6/build/math_dir && /usr/lib/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/my_math_lib.dir/src/div.cpp.o -c /home/ehc1kor/ehc1kor/repo/learnings/cmake/module6/math_dir/src/div.cpp
 
 math_dir/CMakeFiles/my_math_lib.dir/src/div.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my_math_lib.dir/src/div.cpp.i"
-	cd /home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/build/math_dir && /usr/lib/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/math_dir/src/div.cpp > CMakeFiles/my_math_lib.dir/src/div.cpp.i
+	cd /home/ehc1kor/ehc1kor/repo/learnings/cmake/module6/build/math_dir && /usr/lib/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ehc1kor/ehc1kor/repo/learnings/cmake/module6/math_dir/src/div.cpp > CMakeFiles/my_math_lib.dir/src/div.cpp.i
 
 math_dir/CMakeFiles/my_math_lib.dir/src/div.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my_math_lib.dir/src/div.cpp.s"
-	cd /home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/build/math_dir && /usr/lib/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/math_dir/src/div.cpp -o CMakeFiles/my_math_lib.dir/src/div.cpp.s
+	cd /home/ehc1kor/ehc1kor/repo/learnings/cmake/module6/build/math_dir && /usr/lib/ccache/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ehc1kor/ehc1kor/repo/learnings/cmake/module6/math_dir/src/div.cpp -o CMakeFiles/my_math_lib.dir/src/div.cpp.s
 
 math_dir/CMakeFiles/my_math_lib.dir/src/div.cpp.o.requires:
 
@@ -117,9 +117,9 @@ math_dir/libmy_math_lib.a: math_dir/CMakeFiles/my_math_lib.dir/src/add.cpp.o
 math_dir/libmy_math_lib.a: math_dir/CMakeFiles/my_math_lib.dir/src/div.cpp.o
 math_dir/libmy_math_lib.a: math_dir/CMakeFiles/my_math_lib.dir/build.make
 math_dir/libmy_math_lib.a: math_dir/CMakeFiles/my_math_lib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libmy_math_lib.a"
-	cd /home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/build/math_dir && $(CMAKE_COMMAND) -P CMakeFiles/my_math_lib.dir/cmake_clean_target.cmake
-	cd /home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/build/math_dir && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/my_math_lib.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ehc1kor/ehc1kor/repo/learnings/cmake/module6/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libmy_math_lib.a"
+	cd /home/ehc1kor/ehc1kor/repo/learnings/cmake/module6/build/math_dir && $(CMAKE_COMMAND) -P CMakeFiles/my_math_lib.dir/cmake_clean_target.cmake
+	cd /home/ehc1kor/ehc1kor/repo/learnings/cmake/module6/build/math_dir && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/my_math_lib.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 math_dir/CMakeFiles/my_math_lib.dir/build: math_dir/libmy_math_lib.a
@@ -132,10 +132,10 @@ math_dir/CMakeFiles/my_math_lib.dir/requires: math_dir/CMakeFiles/my_math_lib.di
 .PHONY : math_dir/CMakeFiles/my_math_lib.dir/requires
 
 math_dir/CMakeFiles/my_math_lib.dir/clean:
-	cd /home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/build/math_dir && $(CMAKE_COMMAND) -P CMakeFiles/my_math_lib.dir/cmake_clean.cmake
+	cd /home/ehc1kor/ehc1kor/repo/learnings/cmake/module6/build/math_dir && $(CMAKE_COMMAND) -P CMakeFiles/my_math_lib.dir/cmake_clean.cmake
 .PHONY : math_dir/CMakeFiles/my_math_lib.dir/clean
 
 math_dir/CMakeFiles/my_math_lib.dir/depend:
-	cd /home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ehc1kor/ehc1kor/repo/learnings/cmake/module3 /home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/math_dir /home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/build /home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/build/math_dir /home/ehc1kor/ehc1kor/repo/learnings/cmake/module3/build/math_dir/CMakeFiles/my_math_lib.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ehc1kor/ehc1kor/repo/learnings/cmake/module6/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ehc1kor/ehc1kor/repo/learnings/cmake/module6 /home/ehc1kor/ehc1kor/repo/learnings/cmake/module6/math_dir /home/ehc1kor/ehc1kor/repo/learnings/cmake/module6/build /home/ehc1kor/ehc1kor/repo/learnings/cmake/module6/build/math_dir /home/ehc1kor/ehc1kor/repo/learnings/cmake/module6/build/math_dir/CMakeFiles/my_math_lib.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : math_dir/CMakeFiles/my_math_lib.dir/depend
 
