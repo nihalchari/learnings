@@ -1,0 +1,3 @@
+/usr/local/include/my_math/add.hpp
+/usr/local/include/my_math/div.hpp
+/usr/local/lib/my_math/libmy_math_lib.a
