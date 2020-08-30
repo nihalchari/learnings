@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.0.0)
+
+message("Hello World")
+
+
+set(VAR aa bb cc)
+message("set(VAR aa bb cc) ")
+message(${VAR})
+message("${VAR}")
+
+
+set(VAR1 aa;bb;cc)
+message("set(VAR1 aa;bb;cc) ")
+message(${VAR1})
+message("${VAR1}")
+
+#check script_mode_mode4.md under docs for more example

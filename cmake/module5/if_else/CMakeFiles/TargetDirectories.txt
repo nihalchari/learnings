@@ -1,0 +1,2 @@
+/home/ehc1kor/ehc1kor/repo/learnings/cmake/module5/if_else/CMakeFiles/rebuild_cache.dir
+/home/ehc1kor/ehc1kor/repo/learnings/cmake/module5/if_else/CMakeFiles/edit_cache.dir

@@ -1,0 +1,5 @@
+/home/ehc1kor/ehc1kor/repo/learnings/cmake/module2/build/CMakeFiles/rebuild_cache.dir
+/home/ehc1kor/ehc1kor/repo/learnings/cmake/module2/build/CMakeFiles/edit_cache.dir
+/home/ehc1kor/ehc1kor/repo/learnings/cmake/module2/build/CMakeFiles/calculator.dir
+/home/ehc1kor/ehc1kor/repo/learnings/cmake/module2/build/CMakeFiles/math.dir
+/home/ehc1kor/ehc1kor/repo/learnings/cmake/module2/build/CMakeFiles/print.dir
