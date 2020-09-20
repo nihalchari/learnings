@@ -1,7 +1,13 @@
-#include<iostream>
+#include <iostream>
 
-int main(){
-	const char* const format = "%s=%s"; 
+using namespace std;
 
-	return 0;
+int main()
+{
+
+    int arr[3] = {1, 2, 3};
+    int *a = arr;
+    a++;
+    std::cout
+        << *a;
 }
