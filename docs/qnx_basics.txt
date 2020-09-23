@@ -1,0 +1,42 @@
+///@brief training from blueberry qnx
+
+QNX:
+Micro Kernel-> Process Management, Thread Management, Memory Management, I/O Management
+Scheduling -> priorrity based(pre-emptive ??)
+
+
+
+QNX is supported on x86, x86_64, CortexA
+Not supported on CortexM
+
+
+requirenment -> MMU (MPU is not requirenment)
+
+MMU : 
+H/W unit in uP
+converts virtual address to physical address
+Also provides protection(memory??)-> how? -> generates Interrupt -> kernel recieves it -> kernel suspends Process
+
+
+QNX 7.10
+separated QNX OS(SDP) and IDE(qnx momentics)
+
+BSP??(Board Support package)
+
+qccon
+devccon
+
+momentics -------------------------------> virtual machine or h/w target
+            ethernet(target IP address)
+        
+jtag option available, lauterbag/ trace32
+
+build process -> ifs.build file
+
+IPC
+for two process to communicate, 1 process need to open channel and other process need to have connection
+
+IPC types
+- Message(exchange info between 2 process)
+- Pulses(deliver notification to process)
+- signal(sends Interrupt to process)
