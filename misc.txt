@@ -1,0 +1,60 @@
+https://pragprog.com/book/tpp20/the-pragmatic-programmer-20th-anniversary-edition
+
+
+http://www.dslreports.com                      INTERNET SPEED TEST
+
+
+
+
+Clean code
+https://www.amazon.in/Clean-Coder-Conduct-Professional-Programmers-ebook/dp/B0050JLC9Y/ref=pd_sim_351_2/260-2122190-2738350?_encoding=UTF8&pd_rd_i=B0050JLC9Y&pd_rd_r=a5642f59-e7e9-4030-b310-9f675a311f36&pd_rd_w=Rcd7K&pd_rd_wg=uCtAJ&pf_rd_p=64901ac7-e7c5-4bfc-9580-c94746a1fc53&pf_rd_r=6Z5982W7AJTHB3XE4MFR&psc=1&refRID=6Z5982W7AJTHB3XE4MFR
+
+https://www.amazon.in/dp/B001GSTOAM/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1
+
+
+
+sourcetrail
+https://github.com/CoatiSoftware/Sourcetrail/releases
+
+
+
+
+Mardown file
+https://confluence.atlassian.com/bitbucketserver/markdown-syntax-guide-776639995.html
+
+
+
+German to english
+http://rb-intrans.bosch.com/Pages/TranslateText.aspx?interface=1 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+· Wireshark
+	Wireshark is the world’s foremost and widely-used network protocol analyzer. It lets you see what’s happening on your network at a microscopic level and is the de facto (and often de jure) standard across many commercial and non-profit enterprises, government agencies, and educational institutions. Wireshark development thrives thanks to the volunteer contributions of networking experts around the globe and is the continuation of a project started by Gerald Combs in 1998. 
+	 
+	Install
+	sudo apt-get install wireshark
+	 
+	Configure 
+	After installing wire some quirks need to be done to get it working
+	https://www.maketecheasier.com/using-wireshark-ubuntu
+	 
+	This is the command, in case the above link is shutdown !
+	sudo chmod 4711 `which dumpcap`
+	
+	
+	If above commands throws error like "chmod: missing operand after ‘4711’"
+		
+		Find the path of dumpcap using command sudo which dumpcap
+		Give the output of above command as parameter to sudo chmod 4711

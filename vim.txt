@@ -1,0 +1,12 @@
+keyboard shorcuts
+Left shft + 5    -> to jump to corresponding closing braces
+
+To insert common word in selected line
+Shift+v, shift+ i  , add required word/character, ESC
+
+To delete starting word/alpha of sequential lines
+    Place cursor on first or last word to del
+    Press Ctrl+v to enter Visual Block mode
+    Use arrow keys to select the ; characters you want to delete (or the other "first few characters")
+    Press x to delete them all at once
+
