@@ -1,0 +1,34 @@
+
+* asterisk with executable file 
+The asterisk is not actually part of the filename. You are seeing it because the file is executable and your alias for ll includes the -F flag:
+	-F 
+		Display a slash ('/') immediately after each pathname that is a directory, an asterisk ('*') after each that is executable, an at sign ('@') after each symbolic link, an equals sign (`=') after each socket, a percent sign ('%') after each whiteout, and a vertical bar ('|') after each that is a FIFO.
+
+From <https://unix.stackexchange.com/questions/456320/a-filename-has-an-asterisk-for-some-reason-it-wont-be-changed-and-content-not> 
+
+
+
+
+
+
+
+
+
+
+
+Display size bigger then screen
+xrandr --size 1366x768
+From <https://askubuntu.com/questions/425628/how-do-i-resolve-desktop-larger-than-screen> 
+
+http://ubuntuhandbook.org/index.php/2017/04/custom-screen-resolution-ubuntu-desktop/
+
+
+https://askubuntu.com/questions/321589/unable-to-mount-the-cd-dvd-image-on-the-machine-sandbox/347688
+
+
+
+
+startup script
+https://raspberrypi.stackexchange.com/questions/15475/run-bash-script-on-startup
+
+

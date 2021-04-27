@@ -1,0 +1,162 @@
+Rename local branch
+
+
+If you want to rename a branch while pointed to any branch, do:
+git branch -m <oldname> <newname>
+If you want to rename the current branch, you can do:
+git branch -m <newname>
+
+From <https://stackoverflow.com/questions/6591213/how-do-i-rename-a-local-git-branch> 
+
+
+
+    To rename remote branch
+1. Rename your local branch.
+If you are on the branch you want to rename:
+	git branch -m new-name
+If you are on a different branch:
+	git branch -m old-name new-name
+2. Delete the old-name remote branch and push the new-name local branch.
+	git push origin :old-name new-name
+3. Reset the upstream branch for the new-name local branch.
+Switch to the branch and then: 
+	git push origin -u new-name
+
+From <https://www.w3docs.com/snippets/git/how-to-rename-git-local-and-remote-branches.html> 
+
+
+
+To delete local branch
+To delete local and remote branch
+git push origin --delete branchname
+
+git branch -d branch_name
+git branch -D branch_name
+
+The -d option stands for --delete, which would delete the local branch, only if you have already pushed and merged it with your remote branches.
+The -D option stands for --delete --force, which deletes the branch regardless of its push and merge status, so be careful using this one!
+
+From <https://koukia.ca/delete-a-local-and-a-remote-git-branch-61df0b10d323> 
+
+
+To delete remote branch
+git push origin :branch_name
+
+git push --delete <remote_name> <branch_name>
+
+From <https://stackoverflow.com/questions/2003505/how-do-i-delete-a-git-branch-locally-and-remotely> 
+
+
+
+To set upstream branch
+If current branch branch_name has no upstream branch
+
+git push --set-upstream origin branch_name
+
+
+
+git stash
+git stash show
+git stash pop
+
+
+
+
+
+merge
+To revert merge
+git merge --abort
+
+gitx How do I get my 'Detached HEAD' last commits back into master [duplicate]
+
+From <https://stackoverflow.com/questions/4845505/gitx-how-do-i-get-my-detached-head-commits-back-into-master/4845543> 
+
+Checkout to required branch
+git merge HEAD@{1}
+
+
+
+To reset to perticular commit
+git reset --hard <commit id>
+
+
+
+git cherry-pick
+choose a commit from one branch and apply it onto another
+
+	1. Make sure you are on the branch you want to apply the commit to.
+	2. git cherry-pick <commit-hash>
+
+From <https://stackoverflow.com/questions/9339429/what-does-cherry-picking-a-commit-with-git-mean> 
+
+
+To cherrypick multiple commit
+git cherry-pick commit_older^..commit_later            (includes commit_older)
+git cherry-pick commit_older..commit_later
+
+
+
+
+
+How to get just one file from another branch
+Make sure you are on the branch you want to copy the file
+
+git checkout   branch_name_from_where_you_want_to_copy   --   file_name_to_be_copied
+
+From <https://stackoverflow.com/questions/2364147/how-to-get-just-one-file-from-another-branch/2364223> 
+
+
+
+
+
+To compare same file on different branches of git
+git diff mybranch..master -- myfile.cs
+
+From <https://stackoverflow.com/questions/4099742/how-to-compare-files-from-two-different-branches> 
+
+
+
+
+
+git commit
+To re commit
+git commit --amend
+
+git commit  --amend -m  "new message"
+
+To sign last commit
+ git commit --amend --no-edit -s
+
+
+
+
+remote
+git remote add upstream https://github.com/eclipse/iceoryx.git
+
+git remote -v
+
+git remote rm remote_name
+
+
+
+To list remote branch
+git branch -r | grep AOS-8606
+
+
+
+
+To change more than one commit messages
+
+git rebase -i HEAD~N                      //open with interactive mode
+
+This will open editor with N commit msgs
+Replace pick with reword an close the editor
+Editior will open for each N commits, edit commit msg
+
+
+https://www.internalpointers.com/post/squash-commits-into-one-git
+
+
+
+To remove untracked file
+Git clean -fd

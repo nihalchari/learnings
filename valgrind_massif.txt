@@ -1,0 +1,58 @@
+Compile your program with -g to include debugging information so that Memcheck's error messages include exact line numbers
+From <http://valgrind.org/docs/manual/quick-start.html> 
+
+Remove any old Valgrind logs: 
+rm valgrind.log*
+From <https://wiki.ubuntu.com/Valgrind> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Memcheck: a memory error detector
+
+To use this tool, you may specify --tool=memcheck on the Valgrind command line. You don't have to, though, since Memcheck is the default tool.
+From <http://valgrind.org/docs/manual/mc-manual.html> 
+
+valgrind --leak-check=yes myprog arg1 arg2
+Memcheck is the default tool. The --leak-check option turns on the detailed memory leak detector.
+
+Memcheck also provides Execution Trees memory profiling using the command line option --xtree-memory and the monitor command xtmemory
+
+If you use the --read-var-info option Memcheck will run more slowly but may give a more detailed description of any illegal address
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+massif
+
+
+
+To use this tool, you must specify --tool=massif on the Valgrind command line.
+
+From <https://www.valgrind.org/docs/manual/ms-manual.html#ms-manual.overview> 
+by default Massif measures only heap memory, i.e. memory allocated with malloc, calloc, realloc, memalign, new, new[],
+does not directly measure memory allocated with lower-level system calls such as mmap, mremap, and brk.   For this need to use "--pages-as-heap=yes" option

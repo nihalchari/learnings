@@ -1,0 +1,65 @@
+https://code.visualstudio.com/docs?start=true
+
+https://code.visualstudio.com/docs
+
+https://medium.com/@jerrygoyal/run-debug-intellisense-c-c-in-vscode-within-5-minutes-3ed956e059d6
+
+"Visual Studio Code is unable to watch for file changes in this large workspace" (error ENOSPC)
+Thursday, July 11, 2019
+9:34 AM
+
+
+When you see this notification, it indicates that the VS Code file watcher is running out of handles because the workspace is large and contains many files. The current limit can be viewed by running:
+
+cat /proc/sys/fs/inotify/max_user_watches
+
+The limit can be increased to its maximum by editing /etc/sysctl.conf and adding this line to the end of the file:
+
+fs.inotify.max_user_watches=524288
+
+The new value can then be loaded in by running sudo sysctl -p
+
+
+
+
+
+Installation
+Sunday, April 5, 2020
+8:46 AM
+sudo snap install --classic code
+Or
+
+https://go.microsoft.com/fwlink/?LinkID=760868
+
+
+
+
+sudo ln -s /home/user/.vscode/extensions/ms-vscode.cpptools-0.10.3/LLVM/bin/clang-format   /usr/bin/clang-format
+
+
+
+plugins
+Bookmark  ctrl alt k, ctrl alt l
+C/C++
+C++ intellisense
+Git lens
+Clang format
+
+
+
+
+
+To find and replace
+Multi cursor selection
+To add cursors at arbitrary positions, select a position with your mouse and use Alt+Click (Option+click on macOS). You can add additional cursors to all occurrences of the current selection with Ctrl+Shift+L.
+To find file 
+Ctrl + p
+
+ shortcut to comment/uncomment  out a block   ctrl + /
+Jump to opposite bracket                     Ctrl+Shift+\
+Top                                Ctrl+Home
+Down                             Ctrl+End
+
+
+Insert bookmark:   ctrl alt k
+Toggle betwn 2 bookmarks        ctrl alt l

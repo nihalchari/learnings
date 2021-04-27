@@ -1,0 +1,12 @@
+To set root directory folder
+  WORKSPACE=$(git rev-parse --show-toplevel)
+    echo "workspace is ${WORKSPACE}"
+
+
+
+kill
+    ps -aux | grep script_name
+killall script_name
+
+From <https://unix.stackexchange.com/questions/174028/killing-a-shell-script-running-in-background> 
+    

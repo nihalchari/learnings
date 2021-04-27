@@ -1,0 +1,95 @@
+sudo apt-get update
+sudo apt-get upgrade -y
+reboot
+From <https://www.techrepublic.com/article/how-to-configure-linux-to-use-ntlm-using-cntlm/> 
+
+
+
+To create softlink
+ln -s path/to/directory softlink_name
+
+
+
+To check size of directory
+du directory_name
+du -sh directory_name
+
+
+To get PID of process
+Top | grep process_name
+
+
+
+To know kernel version 
+cat /proc/version
+OR
+uname -r
+OR
+uname -a
+
+
+
+
+
+To find file in filesystem
+find . -name "*Chatter*"
+
+
+
+While using apt 
+Could not get lock /var/lib/dpkg/lock-frontend - open (11: Resource temporarily unavailable)
+E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), is another process using it?
+
+ ps aux | grep -i apt
+
+
+ apropos pthread
+
+
+
+ export LD_LIBRARY_PATH=/home/username/foo:$LD_LIBRARY_PATH
+echo $LD_LIBRARY_PATH
+
+
+
+
+to generate ssh keys
+cd ~/.ssh
+ssh-keygen -t rsa
+
+
+uname
+-r
+
+4.4.0-97-generic
+This means that you are running Linux kernel 4.4.0-97 or in more generic terms, you are running Linux kernel version 4.4.
+But what do other digits mean here? Let me explain it to you:
+	• 4 – Kernel version
+	• 4 – Major revision
+	• 0 – Minor revision
+	• 97 – Bug fix
+	• generic – distribution specific string. For Ubuntu, it means I am using the desktop version. For Ubuntu server edition, it should be server.
+
+From <https://itsfoss.com/find-which-kernel-version-is-running-in-ubuntu/> 
+
+
+
+-a
+
+Linux itsfoss 4.4.0-97-generic #120-Ubuntu SMP Tue Sep 19 17:28:18 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+Let me explain the output and give it a meaning:
+	• Linux – Kernel name. If you run the same command on BSD or macOS, the result will be different.
+	• itsfoss – hostname
+	• 4.4.0-97-generic – Kernel release (we just saw that)
+	• #120-Ubuntu SMP Tue Sep 19 17:28:18 UTC 2017 – This means that Ubuntu compiled 4.4.0-97-generic 120 time. Last compilation timestamp is also there.
+	• x86_64 – Machine architecture
+	• x86_64 – Processor architecture
+	• x86_64 – Operating system architecture (You can run a 32 bit OS on a 64-bit processor)
+	• GNU/Linux – Operating system (and no it won’t show the distribution name)
+
+From <https://itsfoss.com/find-which-kernel-version-is-running-in-ubuntu/> 
+
+
+
+sudo dpkg -i  .deb
+

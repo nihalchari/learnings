@@ -1,0 +1,65 @@
+From <https://gerardnico.com/os/linux/shared_memory> 
+What is the maximum shared memory segment size in Linux
+
+cat /proc/sys/kernel/shmmax
+
+
+
+To check the size of the shared memory file system, enter the following command: 
+df –k /dev/shm
+
+
+
+To determine current shared memory limits you can use the ipcs command. 
+ipcs -lm
+
+
+segments
+ipcs -m 
+
+
+To get mapped files
+cat /proc/PID/maps 
+
+
+
+https://www.softprayog.in/programming/interprocess-communication-using-posix-shared-memory-in-linux
+
+
+
+
+default and max size is defined at cd 
+
+HARD_MSGSIZEMAX & HARD_MSGMAX is defined in /usr/src/linux-headers-5.0.0-29/include/linux/ipc_namespace.h
+
+
+queues_max
+number of message queues that can be created.  The default value for queues_max is 256
+
+
+
+This argument to mq_send() should always be less  than or equal to mq_msgsize member of struct mq_attr structure.
+
+whereas
+
+This argument to mq_receive() should always be more  than or equal to mq_msgsize member of struct mq_attr structure.
+
+
+
+#include <mqueue.h>
+int mq_getattr(mqd_t mqdes, struct mq_attr *attr);
+int mq_setattr(mqd_t mqdes, const struct mq_attr *newattr,
+                    struct mq_attr *oldattr);
+The mq_getattr function gets the attribute structure, struct mq_attr, for the message queue for descriptor, mqdes. Similarly, the function, mq_setattr is for setting the attributes of a queue. However, the only attribute that can be modified using mq_setattr is the O_NONBLOCK flag in mq_flags. Other fields in the structure pointed by newattr are ignored. If oldattr is not null, the previous values of queue attributes are returned in the structure pointed by it
+
+From <https://www.softprayog.in/programming/interprocess-communication-using-posix-message-queues-in-linux> 
+
+
+
+O_NONBLOCK
+Can be set only using set_attr();
+If set in mq_open it will not have any effect;
+
+
+
+https://www.cprogramming.com/tutorial/shared-libraries-linux-gcc.html

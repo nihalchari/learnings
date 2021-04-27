@@ -1,0 +1,132 @@
+
+
+http://derekmolloy.ie/hello-world-introductions-to-cmake/
+https://cmake.org/cmake-tutorial/
+
+https://stackoverflow.com/questions/49859457/how-to-reinstall-the-latest-cmake-version
+
+
+
+
+    If you are using a minimal Ubuntu image or a Docker image, you may need to install the following packages:
+
+    sudo apt-get update
+    sudo apt-get install apt-transport-https ca-certificates gnupg \
+                             software-properties-common wget
+
+    Obtain a copy of our signing key:
+
+    wget -qO - https://apt.kitware.com/keys/kitware-archive-latest.asc |
+        sudo apt-key add -
+
+    Add the repository to your sources list and update.
+
+    For Ubuntu Bionic Beaver (18.04):
+
+    sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ bionic main'
+    sudo apt-get update
+
+    For Ubuntu Xenial Xerus (16.04):
+
+    sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ xenial main'
+    sudo apt-get update
+
+    ... Optional steps. See details in reference.
+
+    ... Optional steps. See details in reference.
+
+    Now call
+
+    sudo apt-get install cmake
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Uninstall cmake
+sudo apt purge cmake
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+add_executable(executable_name source_file1/file2…)
+Creates executable at the end of build process
+This commands takes 2 args
+Arg1: name of final executable
+Arg2: source files requires to build args
+
+
+
+
+No sense of hierarchy here
+Cannot make out which source file is depended on what
+May be difficult while managing big project
+So make project modular(make and use libraries ) with some sense of hierarchy
+
+
+
+
+add_library(library_name source_files1/file2…)
+
+target_link_libraries(executable_name library_name1/name2…)
+
+
+
+Libraries and executable are jointly called targets in cmake
+Every target in cmake has some properties and dependencies associated with it
+
+Some target properties are
+INTERFACE_LINK_DIRECTORIES
+INCLUDE_DIRECTORIES
+VERSION
+SOURCES
+
+
+This properties are automatically set when we run commands like target_link_libraries() or target_include_directories()
+
+Properties can be modified using 
+set_target_properties()
+set_property()
+get_property()
+get_tartget_property()
+
+
+Target is capable of propagating its properties in dependency chain
+
+
+This are scope specifier
+PUBLIC INTERFACE PRIVATE
+
+tartget_link_libraries(mytarget PUBLIC 1st_dependency_of_mytarget 2nd_dependency_of_mytarget )
+ 
+Using PUBLIC or INTERFACE  means, property called INTERFACE_LINK_LIBRARIES is set and this property is  available to all target that depends upon mytarget
+PRIVATE :  do not want to set and propagate property
+
+
+
+Visit cmake documentation to know about more on properties of target
+
+
+

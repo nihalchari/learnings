@@ -1,0 +1,298 @@
+Thread is an execution path within a process.
+
+Single threaded process
+Thread has been called main, main thread is the main function, which is entered via main, and when main returns it dies. And because there is no other thread process dies.
+
+Process is a umbrella over threads,  that lies within it, 
+Process will have all require resource that will be needed during execution 
+
+We can have multiple threads of execution in a process, such process is called multi-threaded process
+Process is lot more than a tread, it will have virtual address space, attributes like Process ID, process group ID, user ID, and group ID Environment
+• Working directory.
+• Program instructions
+• Registers
+• Stack
+• Heap
+• File descriptors
+• Signal actions
+• Shared libraries
+• Inter-process communication tools (such as message queues, pipes, semaphores, or
+shared memory).
+Now within this u can have one or more thread of execution
+
+When u create process,
+Fork() : duplicates caller -> heavy weight -> takes more memory -> more cpu cycle
+In practical, highly optimized on linux 
+Fork don’t copy text since it is read execute, don’t copy data until required using cow technique
+But paging table of child , has to create fresh which take memory n time which slows down fork process.
+
+When calling thread- > anyways optimized -> do not create new process -> new thread lives in virtual address space of caller 
+Shares process resources -> light weight alternative to fork(), except Stack.
+Every thread has is private stack.
+
+Stack is where runtime context is stored, if we had 3 threads n 1 stack, then it would be necessary to access stack serially, and goal of parallelism will be defeated .. 
+
+In Linux, a stack is just a memory region that is malloc(), between library segment and stack of main
+
+Side effects,
+
+Changes made to shared resource by one thread will reflects in other threads.
+Eg. One threads closes file.
+Requires synchronization
+
+Pthread framework/ library
+
+
+@todo    pthreads/speed_thrdprcs_simple/create_destroy$  check time req  ->(cpu profiling) use time program
+Check for cpu  profiler tool perf   
+For better benchmark, run Perf as a root, it shows m/c level statistics, time accuracy in nano sec.
+
+Creating and destroying threads is much faster than the same with the process model
+
+Network servers Client like FTP, HTTP, Telnet : mostly process model/ hybrid(process n thread)
+
+Y multithreading? : to take adv of potential parallelism
+SMP sys 
+H/W is evolving-> multi-core sys.
+8 core -> 1 threads????? No sense.
+8 core -> 8 threads
+
+overlapping CPU with IO !
+
+@todo: check load on cpu while creating fork n pthread.
+
+
+Typical Architecture thread Model that is followed is manger worker model
+Manager thread spwan off child worker threads, when work arises manager wakes up worker thread telling go n do the work.
+Worker thread does the work n sleeps again.
+
+Typically main is manager thread.
+
+Other model : pipeline , peer
+
+pipeline
+a task is broken into a series of sub operations, each of which is handled in series, but concurrently, by a different thread. An automobile assembly line best describes this model.
+
+Peer
+similar to the manager/worker model, but after the main thread creates other threads, it participates in the work.
+
+
+Global object -> shared memory-> inter thread communication -> causes data races -> concurrency issue-> req synchronization->locking
+
+TLS, TSD  : modern approach,  for MT
+
+All Pthread APIs are in libpthread – u have to explicily link to it..
+older: -lpthread
+modern: -pthread
+
+When a process is born it automatically has a single thread of execution :
+main() !
+
+main() can create / spwan off worker threads
+
+there is an upper limit;
+• it’s per process: resource limit
+prlimit |grep NPROC
+• system-wide limit on total # of threads alive at the same time
+◦ /proc/sys/kernel/threads-max : function of RAM available !
+
+
+What determines it? -> RAM size
+
+
+
+2 stacks per thread -> user and kernel 
+3 threads -> 6 stacks
+
+Robust programs should not depend upon threads executing in a specific order. Its load balancing at OS level.
+
+Use pthread_exit(...); // <-- explicitly die/exit   instead of implicit exit at end of function
+
+exit()  // entire process is will die
+
+
+All process alive ps -A
+All process with all threads alive ps -LA
+Not available with busy box ps, low wait ps for embedded system
+
+Defunct : find out command
+
+‘Correct’ design: have main() create all threads.. threads do their work.. main() wait s for all of them to exit, and only then does it exit
+
+How to do?????
+
+Linux add on functionality
+Foo_np ->not_portable -> linux only -> GNU extensions
+
+In multithread app, ensure each thread has enough stack, stack overflow could be a potential bug.
+size of the thread stack can be set at thread creation time - it’s an attribute
+@todo L1_sysprg_trg/pthreads/llnl-tut-prgs/stacksz.c
+Test under load and set the max stack size for your threads
+
+Default stack size per thread 8MB,
+But do not allocate 8MB, its just the upper limit.
+
+
+
+Check for integer overflow in production code, eg atoi() returns ??
+
+Check for command to display threads -> check for kernel threads - > will be in [] square brackets
+ps -LA
+
+To leverage exact amount of memory each thread is using -> proc
+/proc/pid/
+
+/proc/pid/task/  -> if single threaded, only pid will be shown in task, if multi threaded, all thread ids
+
+
+
+to check memory
+cat /proc/2431/task/2431/maps  
+cat /proc/2431/maps 
+cat /proc/2431/smaps 
+
+k's procmap project
+
+
+
+
+Passing Arguments to Threads
+Make sure that all passed data is thread safe
+
+suffix _r. -> reentrant safe -> thread safe
+Lib routines: if you have both foo() and foo_r(), use the latter – it’s
+reentrant and thus thread safe!
+
+3 threads-> issue sys call -> all 3 sys call fails -> errno will set to???
+By default errno is thread unsafe
+In modern implementation of glibc, every thread has its own copy of errno
+
+strerr()-> static char buf[MAX_ERROR_LEN]; 
+
+using TLS,
+TLS:  Robust thread-safe implementation using Thread Local Storage
+static __thread char buf[MAX_ERROR_LEN]; /* Thread-local return buffer */
+(Because of compiler and kernel support each thread comes alive will get its own copy of buffer, local copy)
+Works on static or extern var, not on local var
+Var remains persistent untill thread dies
+inherited 10-25 years back code?? just add __thread, to make thread safe 
+Never need a lock here.
+Good performance-> speed
+Cost: RAM(memory), every thread comes alive need to allocate extra RAM (size of buff)
+
+TSD
+Legacy systems: equivalent to TLS is TSD -> Thread Specific Data
+Same as TLS, but developer has to do it manually using API's
+
+Refactor
+foo() as foo_r()
+eg. ctime() , use ctime_r() [man page]
+
+
+Thread Cancellation.
+In Linux internally implemented using signals.
+Abstracted -> we are given api -> pthread_cancel()
+Y? -> issue Kill signal -> it is issued to pid ie process and not to tid.
+Under the hood , its Linux extension that can issue signal to tid, but it is abstracted.
+
+Cancellation state :  enabled(default) and disabled
+Use api pthread_setcancelstate(), and macro PTHREAD_CANCEL_ENABLE , PTHREAD_CANCEL_DISABLE
+
+Doing important task -> disable cancellation -> task done -> enable cancellation
+Request of cancellation comes in disable state? -> its remains pending until cancellability is enabled.
+
+Type of cancellability : deferred(default) and async
+Deferred means delayed till cancellation point is reached.
+Wants to cancellation to happen immediately? Set to asyn(not recommended though-> wrong way->only wen absolutely req)
+Cancellation point: sys calls n lib calls which are blocking in nature eg. Sleep(), read(), wait, write(), open()
+pthread_testcancel() : to execute pending cancellation if no cancellation point in code -> forced cancellation
+
+
+Thread Synchronization
+atomic execution: means execute to completion without interruption
+
+
+
+
+Deadlock
+- self-deadlock
+- deadly embrace : AB-BA deadlock -> when you have >=2 threads working with >= 2 locks
+
+Only the owner of the lock can perform the unlock
+recursive locking isn’t the default -> poor semantics -> avoid using
+
+Install appropriate ‘cleanup handlers’ to release resources (locks/memory)
+• Use the helgrind tool (part of the Valgrind suite) to debug locking / race issues in
+multithreaded applications. Wikipedia link
+• Use the Thread Sanitizer (TSan) compile-time instrumentation to check for data races in
+multithreaded applications [link]
+• The Linux kernel uses a very sophisticated locking deadlock-detection tool: lockdep. Userspace
+variants are also available. See this link for more details.
+
+4.3 ending
+
+Dirty reads
+
+Conditional variables : associated with mutex
+
+
+Cleanup handler
+pthread_cleanup_push ; make a habit to use cleanup handler
+pthread_cleanup_pop(1);     passing +ve no calls handler
+
+Tip: Push pop must me in same function
+
+5.2 ending
+
+
+Scheduling
+Model of single single teer scheduling vs 2 teer scheduling     (process n threads)
+Old unix uses 2 teer
+For Linux OS, the kernel schedulable entity (KSE) is a thread, Threads are the runnable entities, process is just a umbrella over threads, threads are scheduled by kernel to run on cpu core.
+
+State of process or thread, it's not that threads needs to all the time.
+ps -l -> check for second column -> s:sleeping z:zombie r:ready to run or running T: stopped/ frozen/suspended(by ctrl Z)
+X: transient state(dead)
+
+fg, bg
+
+Blocking call? -> go to sleep
+2 types of sleep in linux
+S: Interruptible sleep -> sleep can be interrupted by signal that is delivered by process or a thread, I'm willing to respond to signal
+D: Uninterruptable sleep -> I'm not willing to respond to signal including kill signal
+
+When go to sleep in kernel -> kept in DS called wait queue, when event waiting for occurs -> woken up -> dequeued
+
+
+RR-> default time slice is 100ms
+
+Sched_batch: for batch job/cron job
+Sched_idle: when no threads wants cpu-> swapper/n thread (per-cpu kernel thread)   n->cpu no 
+
+chrt -m
+Chrt -help
+Using chrt you can change priority and policy of any given threads, can write scripts to manage system, other way is using pthread api.
+
+chrt  -p pid-> tells priority n policy of given pid
+pthreads/sched/query_all.sh : for every process alive on system show policy, priority n cpu affinity
+
+taskset is the utility which will show u cpu affinity mask of the process
+
+Lets consider 4 core cpu,
+
+
+Default cpu affinity mask for each thread will be : 1 1 1 1 <-- cpu affinity mask (0xf) -> can run on any available cpu
+1 0 0 0 <-- can only run on cpu #3
+
+
+Pid 12 -> fifo ->99->1
+ps -aux |  grep 12 | head
+
+int pthread_setschedparam(pthread_t thread, int policy,const struct sched_param *param);
+
+sched_param-> only one member-> real time priority
+Needs to be run as root
+Use capability model
+They require root access, or, much better, for the binary to have the CAP_SYS_NICE capability bit set
+
+

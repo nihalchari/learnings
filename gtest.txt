@@ -1,0 +1,65 @@
+--gtest_repeat=1000  --gtest_break_on_failure.
+
+RUN_ALL_TESTS
+
+
+you can dump the output into XML format by passing
+--gtest_output="xml:<file name>"
+
+
+
+
+
+disable a test temporarily
+DISABLE_
+
+
+If you want to continue running the disabled tests, pass
+-gtest_also_run_disabled_tests
+
+
+Assertions
+
+ASSERT_*
+ASSERT_TRUE (condition) 
+ASSERT_NE (val1, val2)
+ASSERT_NEAR (2.00001, 2.000011, 0.0000001)
+
+EXPECT_*
+
+
+death assertions
+ASSERT_DEATH(statement, expected_message)
+ASSERT_EXIT(statement, predicate, expected_message)
+
+
+Google provides the predefined predicate ::testing::ExitedWithCode(exit_code).
+
+
+
+-lgtest -lgtest_main -lpthread
+ 
+ 
+
+Warning: Death tests use fork(), which is unsafe particularly in a threaded context. For this test, Google Test detected 12 threads.
+Soln:(use this option)     --gtest_death_test_style=threadsafe
+https://groups.google.com/a/chromium.org/forum/#!topic/chromium-dev/Ww8bs5kAeo8
+https://www.youtube.com/watch?v=HNu-Rsno_wU
+Naming conventions
+https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#death-tests-and-threads
+
+
+
+Set gest on Ubuntu
+https://www.eriksmistad.no/getting-started-with-google-test-on-ubuntu/
+
+http://www.yolinux.com/TUTORIALS/Cpp-GoogleTest.html
+https://github.com/google/googletest/blob/master/googletest/docs/primer.md
+
+
+https://developer.ibm.com/articles/au-googletestingframework/
+How to set up googletest library from source?
+
+From <https://lchsk.com/how-to-set-up-googletest-library-from-source.html> 
+https://www.youtube.com/watch?v=nbFXI9SDfbk&list=PL_dsdStdDXbo-zApdWB5XiF2aWpsqzV55&index=1 
+

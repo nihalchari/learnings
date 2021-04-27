@@ -1,0 +1,23 @@
+
+gcov
+Thursday, June 18, 2020
+6:00 PM
+https://medium.com/@naveen.maltesh/generating-code-coverage-report-using-gnu-gcov-lcov-ee54a4de3f11
+gcov + cmake
+https://jhbell.com/using-cmake-and-gcov
+steps
+g++ -o main -fprofile-arcs -ftest-coverage main_test.cpp -lgtest -lgtest_main -pthread
+
+./main
+
+gcov main_test.cpp
+
+
+lcov -c --directory . --output-file main_coverage.info
+
+
+genhtml main_coverage.info --output-directory out
+
+cd out
+
+ firefox index.html 

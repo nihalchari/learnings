@@ -1,0 +1,40 @@
+Install Git extension tool for linux
+https://git-extensions-documentation.readthedocs.io/en/latest/git_extensions.html 
+
+https://git-extensions-documentation.readthedocs.io/en/latest/git_extensions.html 
+
+https://git-scm.com/book/en/v2/Appendix-C%3A-Git-Commands-Email 
+
+https://learngitbranching.js.org/  
+Learn Git Branching
+
+
+https://www.atlassian.com/git/tutorials
+https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud
+
+https://github.com/jamores/eth-ws-someip
+
+
+
+
+Git kraken
+1. Download  Linux (Gzip) foramt from https://www.gitkraken.com/download 
+2. Extract using tar xzvf
+	tar xzvf gitkraken-amd64.tar.gz 
+3. run gitkraken executable from extracted folder
+./gitkraken
+
+
+
+
+
+
+
+
+Git patch
+https://www.hackerrank.com/auth/signup?h_l=body_top_center_button&h_r=home
+Git mergetool https://git-scm.com/docs/git-mergetool
+
+§ https://git-scm.com/docs/git-difftool 
+§ Kdiff3
+Gitlens

@@ -1,0 +1,286 @@
+https://www.linuxhelp.com/access-control-lists-acl
+
+https://docs.oracle.com/cd/E19455-01/805-7229/6j6q8svdb/index.html
+
+
+
+
+
+Default ACL
+The default ACL is a specific type of permission assigned to a directory, that doesn’t change the permissions of the directory itself, but makes so that specified ACLs are set by default on all the files created inside of it.
+Let’s demonstrate it : first we are going to create a directory and assign default ACL to it by using the -d option:
+$ mkdir test && setfacl -d -m u:dummy:rw test
+
+From <https://www.geeksforgeeks.org/access-control-listsacl-linux/> 
+
+Create new users in Linux
+The primary purpose of user and group  is to determine ownership of various system resources and to control the permissions granted to processes accessing those resources. For example, each file belongs to a particular user and group, and each process has a number of user and group  that determine who owns the process and what permissions it has when accessing a file
+
+
+Linux groups are organization units which are used to organize and administer user accounts in Linux. The main purpose of groups is to define a set of privileges such as reading, writing, or executing permission for a given resource that can be shared among the users within the group.
+
+From <https://linuxize.com/post/how-to-add-user-to-group-in-linux/> 
+
+There are two types of groups in Linux operating systems:
+	• Primary group – When a user creates a file, the file’s group is set to the user’s primary group. Usually, the name of the group is the same as the name of the user. The information about the user’s primary group is stored in the /etc/passwd file.
+Secondary or supplementary group - Useful when you want to grant certain file permissions to a set of users which are members of the group. For example, if you add a specific user to the docker group, the user will inherit the access rights from the group and it will be able to run docker commands.
+
+https://www.techrepublic.com/article/how-to-create-users-and-groups-in-linux-from-the-command-line/
+
+
+
+
+To create new user
+sudo useradd -m user_name
+sudo passwd user_name
+-m will create home directory with same name as user
+
+Or
+sudo useradd -m olivia -p PASSWORD
+
+
+
+
+
+
+
+
+Set bash for newly created user
+sudo usermod --shell /bin/bash username
+
+
+To add user to group
+sudo usermod -a -G examplegroup exampleusername                     -a append -G group name
+OR
+sudo adduser username grouptoadd 
+
+To know which groups user belongs
+Groups
+OR
+id username
+
+To which users are already a member of a group
+grep group_name /etc/group
+
+To remove user from group
+sudo gpasswd -d user group
+
+To change a user's primary group in Linux
+usermod -g new_group user_name
+
+
+
+
+
+
+To delete group
+sudo groupdel {group-name-here}
+
+
+
+
+
+
+
+userdel userName
+userdel [options] userName
+
+    -f : Delete Linux user account with force removal of files
+    -r : Remove Linux user account including home directory and mail spool
+    -Z : Remove any SELinux user mapping for the user when deleting user from Linux
+
+
+
+
+
+
+
+
+Access Control Lists(ACL)
+What is ACL ?
+Access control list (ACL) provides an additional, more flexible permission mechanism for file systems. It is designed to assist with UNIX file permissions. ACL allows you to give permissions for any user or group to any disc resource.
+
+Use of ACL :
+Think of a scenario in which a particular user is not a member of group created by you but still you want to give some read or write access, how can you do it without making user a member of group, here comes in picture Access Control Lists, ACL helps us to do this trick.
+
+ACL MASK This entry specifies the maximum permissions that may be granted by ACL USER, ACL GROUP 0B], and ACL GROUP entries. An ACL contains at most one ACL MASK entry. If the ACL contains ACL USER or ACL GROUP entries, then an ACL MASK entry is mandatory. 
+
+The setfacl —m option modifies existing ACL entries, or adds new entries if corresponding entries with the given tag type and qualifier do not already exist. We can additionally use the —R option to recursively apply the specified ACL to all of the files in a directory tree
+
+The addition of the ACL USER and ACL GROUP entries converts this ACL into an extended ACL, and Is —l indicates this fact by appending a plus sign (+) after the traditional file permissions mask
+
+The setfacl command modifies a file ACL. Here, we use the setfacl —m command to add an ACL USER and an ACL GROUP entry to the ACL: 
+
+
+
+
+
+UMASK
+The user file-creation mode mask (umask) is use to determine the file permission for newly created files. 
+It can be used to control the default file permission for new files and dirctories. It is a four-digit octal number
+if the default settings are not changed, files are created with the access mode 666 and directories with 777. 
+
+To check current umask value
+grep UMASK /etc/login.defs
+
+
+Octal umask Mode 
+022 allows only user to write data, but anyone can read data
+002  is good when you share data with other users in the same group, outside your group  data can only be read.
+007 exclude users who are not group members
+077  is good for a completely private system
+
+https://www.cyberciti.biz/tips/understanding-linux-unix-umask-value-usage.html
+
+How to calculate umasks?
+
+The octal umasks are calculated via the bitwise AND of the unary complement of the argument using bitwise NOT. The octal notations are as follows:
+
+                Octal value : Permission
+                0 : read, write and execute
+                1 : read and write
+                2 : read and execute
+                3 : read only
+                4 : write and execute
+                5 : write only
+                6 : execute only
+                7 : no permissions
+
+
+
+
+
+First letter in file permission mask
+• d (directory)
+• c (character device)
+• l (symlink)
+• p (named pipe)
+• s (socket)
+• b (block device)
+
+From <https://unix.stackexchange.com/questions/59132/what-does-the-d-mean-in-ls-al-results-and-what-is-that-slot-called> 
+
+
+
+
+fstab
+Jump to navigation Jump to search 
+Related articles
+	• Persistent block device naming
+	• File systems
+	• tmpfs
+	• swap
+The fstab(5) file can be used to define how disk partitions, various other block devices, or remote filesystems should be mounted into the filesystem. 
+Each filesystem is described in a separate line. These definitions will be converted into systemd mount units dynamically at boot, and when the configuration of the system manager is reloaded. The default setup will automatically fsck and mount filesystems before starting services that need them to be mounted. For example, systemd automatically makes sure that remote filesystem mounts like NFS or Samba are only started after the network has been set up. Therefore, local and remote filesystem mounts specified in /etc/fstab should work out-of-the-box.
+
+From <https://wiki.archlinux.org/index.php/Fstab> 
+
+
+systemd is a suite of basic building blocks for a Linux system. It provides a system and service manager that runs as PID 1 and starts the rest of the system.
+
+From <https://wiki.archlinux.org/index.php/Systemd> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+File system dependency
+
+https://www.tecmint.com/secure-files-using-acls-in-linux/
+
+
+
+
+If your filesystem has not been mounted with the ‘acl’ option, you can re-mount it giving the needed option: 
+
+ mount -o remount -o acl /dev/sda1
+From <https://linuxconfig.org/how-to-manage-acls-on-linux> 
+
+
+
+Support for ACLs is optional for each file system, and is controlled by kernel configuration options under the File systems menu. Reiserfs support for ACLs has been available since kernel 2.6.7. In order to be able to create ACLs on an ext2, ext3, ext4, or Reiserfs file system, the file system must be mounted with the mount —o acl option
+From <https://smallseotools.com/image-to-text-converter/> 
+
+
+
+
+• The acl package is a dependency of systemd, it should already be installed
+• To enable ACL, the filesystem must be mounted with the acl option. You can use fstab to make it permanent on your system. 
+There is a possibility that the acl option is already active as default mount option on the filesystem. Btrfs does and Ext2/3/4 filesystems  do too
+
+to check ext* formatted partitions for the option: 
+sudo tune2fs -l /dev/sda1 | grep "Default mount options:"
+
+
+
+
+
+
+
+
+
+to Determine the File System Type in Linux (Ext2, Ext3 or Ext4)
+           mount | grep "^/dev"
+OR
+	cat /etc/fstab
+
+From <https://wiki.archlinux.org/index.php/Access_Control_Lists> 
+
+
+
+
+Unlike SUID bit, SGID bit works on both files and directories, but it has a different meaning in both cases
+
+
+
+
+
+From <https://linoxide.com/how-tos/stickbit-suid-guid/>     
+
+
+
+
+https://www.techrepublic.com/article/how-to-create-users-and-groups-in-linux-from-the-command-line/
+
+To create new user
+sudo useradd -m olivia
+sudo passwd olivia
+Or
+sudo useradd -m olivia -p PASSWORD
+
+
+Set bash for newly created user
+sudo usermod --shell /bin/bash username
+
+
+To add user to group
+usermod -a -G examplegroup exampleusername                     -a append -G group name
+
+
+
+
+To delete group
+sudo groupdel {group-name-here}
+
+
+
+
+userdel userName
+userdel [options] userName
+
+    -f : Delete Linux user account with force removal of files
+    -r : Remove Linux user account including home directory and mail spool
+    -Z : Remove any SELinux user mapping for the user when deleting user from Linux
